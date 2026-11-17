@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agendamento | Barbearia Prime</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#101010;color:#f8f6f1;font-family:"DM Sans",Arial,sans-serif}
+a{color:#d7aa60;text-decoration:none}.demo{text-align:center;background:#29231b;color:#e8c58e;padding:12px;font-size:11px;letter-spacing:2px;text-transform:uppercase}
+header{padding:25px max(5%,calc((100% - 1050px)/2));border-bottom:1px solid #37332c;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.logo,h1{font-family:"Barlow Condensed",Impact,sans-serif;font-weight:800;text-transform:uppercase}.logo{font-size:29px;letter-spacing:2px}
+main{max-width:630px;margin:65px auto 90px;padding:0 20px}h1{font-size:clamp(48px,8vw,72px);line-height:1;margin:0 0 15px}h1 span{color:#d7aa60}
+p{color:#bbb;line-height:1.7}.panel{background:#1b1b1b;border:1px solid #4a3b28;padding:32px;margin-top:30px}
+label{display:block;margin:20px 0 8px;color:#d7aa60;font-size:12px;font-weight:700;letter-spacing:1px}
+input,select{width:100%;padding:15px;background:#292929;color:#fff;border:1px solid #555;border-radius:0;font:inherit;color-scheme:dark}
+button{width:100%;margin-top:26px;padding:17px;background:#d7aa60;border:1px solid #d7aa60;color:#111;font:800 13px "DM Sans",sans-serif;letter-spacing:1px;cursor:pointer}
+button:hover{background:#edc789}.result{margin-top:20px;padding:20px;border:1px solid #d7aa60;white-space:pre-line;line-height:1.8}.result[hidden]{display:none}
+footer{text-align:center;padding:25px;color:#888;font-size:12px}
+</style>
+</head>
+<body>
+<div class="demo">Site demonstrativo — Barbearia fictícia</div>
+<header><a class="logo" href="index.html">BARBEARIA PRIME.</a><a href="index.html">← Voltar ao início</a></header>
+<main><h1>AGENDE SEU <span>CORTE.</span></h1>
+<p>Escolha o serviço, a data e o horário desejado.</p>
+<p><strong>Simulação:</strong> este formulário não cria reservas reais nem envia mensagens.</p>
+<div class="panel">
+<form id="booking">
+<label for="nome">SEU NOME</label><input id="nome" maxlength="80" autocomplete="name" required placeholder="Digite seu nome">
+<label for="servico">SERVIÇO</label><select id="servico" required><option value="">Selecione um serviço</option><option>Corte masculino — R$ 35,00</option><option>Barba completa — R$ 25,00</option><option>Corte + barba — R$ 55,00</option></select>
+<label for="data">DATA</label><input type="date" id="data" required>
+<label for="hora">HORÁRIO</label><select id="hora" required><option value="">Selecione um horário</option><option>09:00</option><option>10:00</option><option>11:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select>
+<button type="submit">FINALIZAR SIMULAÇÃO</button></form>
+<div class="result" id="resultado" role="status" aria-live="polite" hidden></div>
+</div>
+</main><footer>BARBEARIA PRIME © 2026 — SITE DEMONSTRATIVO</footer>
+<script>
+const form=document.getElementById('booking'),date=document.getElementById('data'),result=document.getElementById('resultado');
+function today(){const d=new Date();return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
+date.min=today();
+form.addEventListener('submit',e=>{
+e.preventDefault();if(!form.reportValidity())return;
+if(date.value<today()){alert('Escolha uma data a partir de hoje.');return}
+const name=document.getElementById('nome').value.trim();if(!name)return;
+const service=document.getElementById('servico').value,time=document.getElementById('hora').value;
+result.textContent='SIMULAÇÃO CONCLUÍDA\n\nNome: '+name+'\nServiço: '+service+'\nData: '+date.value.split('-').reverse().join('/')+'\nHorário: '+time+'\n\nEste horário NÃO foi reservado. Na versão real, o agendamento ficará registrado no sistema da barbearia.';
+result.hidden=false;result.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+</script>
+</body></html>
