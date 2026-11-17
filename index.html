@@ -1,182 +1,529 @@
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Barbearia Prime | Demonstração</title>
-<style>
-:root {
-  --fundo: #101010;
-  --cartao: #1d1d1d;
-  --destaque: #d4a64e;
-  --texto: #ffffff;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--fundo);
-  color: var(--texto);
-}
-header {
-  padding: 22px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #333;
-}
-.logo {
-  font-weight: 900;
-  font-size: 22px;
-  color: var(--destaque);
-}
-nav a {
-  color: white;
-  margin-left: 18px;
-  text-decoration: none;
-}
-.hero {
-  min-height: 460px;
-  padding: 100px 7%;
-  background:
-    linear-gradient(90deg,#000 15%,#0008),
-    url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400')
-    center/cover;
-}
-.hero h1 {
-  font-size: clamp(38px,6vw,72px);
-  max-width: 650px;
-  margin: 0 0 20px;
-}
-.hero p { font-size: 19px; max-width: 500px; }
-.botao {
-  display: inline-block;
-  padding: 16px 25px;
-  margin-top: 20px;
-  background: var(--destaque);
-  color: #111;
-  font-weight: bold;
-  text-decoration: none;
-  border: 0;
-  border-radius: 0;
-}
-section { padding: 65px 7%; }
-h2 { font-size: 32px; margin-bottom: 12px; }
-.subtitulo { color: #bbb; margin-bottom: 30px; }
-.grade {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 18px;
-}
-.servico {
-  background: var(--cartao);
-  padding: 28px;
-  border: 1px solid #333;
-}
-.servico h3 { color: var(--destaque); }
-.preco { font-size: 25px; font-weight: bold; }
-.galeria img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-}
-.contato { background: var(--cartao); }
-footer {
-  padding: 30px 7%;
-  text-align: center;
-  color: #aaa;
-  border-top: 1px solid #333;
-}
-.aviso {
-  background: #333;
-  text-align: center;
-  padding: 10px;
-  font-size: 13px;
-}
-@media(max-width:600px) {
-  header { flex-direction: column; gap: 16px; }
-  nav a { margin: 0 8px; font-size: 13px; }
-  .hero { padding-top: 75px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101010">
+  <title>Barbearia Prime | Estilo e Tradição</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #101010;
+      --surface: #191919;
+      --gold: #d7aa60;
+      --white: #f8f6f1;
+      --muted: #aaa7a1;
+      --line: #37332c;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    h1, h2, h3, .logo {
+      font-family: "Barlow Condensed", Impact, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .container {
+      width: min(1180px, 88%);
+      margin: auto;
+    }
+
+    .demo {
+      padding: 10px 15px;
+      background: #29231b;
+      color: #e8c58e;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      background: #101010;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .nav-btn {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 14px 20px;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg,
+          rgba(0,0,0,.94) 0%,
+          rgba(0,0,0,.72) 48%,
+          rgba(0,0,0,.25) 100%),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600")
+        center / cover;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 18px 0;
+      font-size: clamp(65px, 9vw, 125px);
+      font-weight: 900;
+      line-height: .86;
+      letter-spacing: -2px;
+    }
+
+    h1 span { color: var(--gold); }
+
+    .hero p {
+      max-width: 480px;
+      color: #d1cfca;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      margin-top: 25px;
+      padding: 16px 28px;
+      background: var(--gold);
+      color: #15110b;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--gold);
+      border-radius: 0;
+      transition: .25s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: transparent;
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    section { padding: 100px 0; }
+
+    .section-heading { margin-bottom: 45px; }
+
+    h2 {
+      margin: 12px 0;
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: .95;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 570px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      padding: 38px 30px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      transition: .3s;
+    }
+
+    .service:hover {
+      border-color: var(--gold);
+      transform: translateY(-5px);
+    }
+
+    .service-number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .service h3 {
+      margin: 25px 0 10px;
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+
+    .service p {
+      color: var(--muted);
+      line-height: 1.7;
+      min-height: 55px;
+    }
+
+    .price {
+      margin-top: 25px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--gold);
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 35px;
+      font-weight: 700;
+    }
+
+    .gallery-section { background: #151515; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      filter: grayscale(25%);
+      transition: .4s;
+    }
+
+    .gallery img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.015);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+    }
+
+    .about p {
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .contact-section {
+      background: #1b1916;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .contact-section .subtitle {
+      margin: 20px auto;
+    }
+
+    .contact-info {
+      margin-top: 30px;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    footer {
+      padding: 35px 15px;
+      text-align: center;
+      color: #89847c;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s, transform .7s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 850px) {
+      .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+      }
+
+      nav { gap: 16px; flex-wrap: wrap; justify-content: center; }
+      .nav-btn { display: none; }
+
+      .hero { min-height: 570px; }
+
+      .services { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .about { grid-template-columns: 1fr; gap: 35px; }
+    }
+
+    @media (max-width: 520px) {
+      .container { width: 90%; }
+      .logo { font-size: 27px; }
+      nav a { font-size: 11px; }
+      h1 { font-size: 65px; }
+      .hero { min-height: 540px; }
+      section { padding: 70px 0; }
+      .gallery { grid-template-columns: 1fr; }
+      .gallery img { height: 310px; }
+      .about img { height: 330px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="aviso">
-  SITE DEMONSTRATIVO — NEGÓCIO FICTÍCIO
-</div>
-
-<header>
-  <div class="logo">BARBEARIA PRIME</div>
-  <nav>
-    <a href="#servicos">Serviços</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
-
-<div class="hero">
-  <h1>SEU ESTILO COMEÇA AQUI.</h1>
-  <p>
-    Tradição, personalidade e cortes modernos.
-    Uma experiência feita para quem valoriza o estilo.
-  </p>
-  <a class="botao" href="#contato">AGENDAR HORÁRIO</a>
-</div>
-
-<section id="servicos">
-  <h2>NOSSOS SERVIÇOS</h2>
-  <p class="subtitulo">
-    Atendimento de qualidade em cada detalhe.
-  </p>
-  <div class="grade">
-    <div class="servico">
-      <h3>Corte masculino</h3>
-      <p>Do clássico ao moderno.</p>
-      <div class="preco">R$ 35</div>
-    </div>
-    <div class="servico">
-      <h3>Barba completa</h3>
-      <p>Acabamento e cuidado profissional.</p>
-      <div class="preco">R$ 25</div>
-    </div>
-    <div class="servico">
-      <h3>Corte + barba</h3>
-      <p>O visual completo.</p>
-      <div class="preco">R$ 55</div>
-    </div>
+  <div class="demo">
+    Site demonstrativo — Barbearia fictícia
   </div>
-</section>
 
-<section id="galeria">
-  <h2>NOSSO ESTILO</h2>
-  <p class="subtitulo">Imagens ilustrativas.</p>
-  <div class="grade galeria">
-    <img alt="Interior de barbearia"
-      src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600">
-    <img alt="Ferramentas de barbeiro"
-      src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=600">
-    <img alt="Ambiente de barbearia"
-      src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=600">
-  </div>
-</section>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo">BARBEARIA PRIME.</a>
 
-<section class="contato" id="contato">
-  <h2>AGENDE SEU HORÁRIO</h2>
-  <p>Segunda a sábado: 9h às 19h</p>
-  <p>Endereço e WhatsApp serão configurados para o cliente.</p>
-  <a class="botao" href="javascript:void(0)"
-     onclick="alert('Demonstração: o WhatsApp será configurado para cada cliente.')">
-    AGENDAR PELO WHATSAPP
-  </a>
-</section>
+      <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato" class="nav-btn">Agendar horário</a>
+      </nav>
+    </div>
+  </header>
 
-<footer>
-  BARBEARIA PRIME — MODELO DEMONSTRATIVO
-</footer>
+  <main>
+    <div class="hero">
+      <div class="container">
+        <div class="eyebrow">Estilo • Atitude • Tradição</div>
+
+        <h1>
+          MAIS QUE<br>
+          UM <span>CORTE.</span>
+        </h1>
+
+        <p>
+          Um novo conceito em barbearia.
+          Cortes precisos, atendimento diferenciado
+          e estilo em cada detalhe.
+        </p>
+
+        <a href="#contato" class="btn">
+          Agendar meu horário &rarr;
+        </a>
+      </div>
+    </div>
+
+    <section id="servicos">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">O que fazemos</div>
+          <h2>NOSSOS SERVIÇOS</h2>
+          <p class="subtitle">
+            Do clássico ao moderno. Cada detalhe faz a diferença.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service reveal">
+            <div class="service-number">01 / SERVIÇO</div>
+            <h3>CORTE MASCULINO</h3>
+            <p>
+              Cortes clássicos e modernos com acabamento impecável.
+            </p>
+            <div class="price">R$ 35,00</div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-number">02 / SERVIÇO</div>
+            <h3>BARBA COMPLETA</h3>
+            <p>
+              Alinhamento, desenho e cuidado especial com a barba.
+            </p>
+            <div class="price">R$ 25,00</div>
+          </article>
+
+          <article class="service reveal">
+            <div class="service-number">03 / SERVIÇO</div>
+            <h3>CORTE + BARBA</h3>
+            <p>
+              Uma experiência completa para renovar seu visual.
+            </p>
+            <div class="price">R$ 55,00</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="galeria">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Nossa inspiração</div>
+          <h2>ESTILO EM CADA DETALHE</h2>
+          <p class="subtitle">
+            Imagens ilustrativas para demonstração do modelo.
+          </p>
+        </div>
+
+        <div class="gallery">
+          <img
+            loading="lazy"
+            alt="Ambiente de barbearia"
+            src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=700">
+
+          <img
+            loading="lazy"
+            alt="Ferramentas de barbeiro"
+            src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=700">
+
+          <img
+            loading="lazy"
+            alt="Espaço de barbearia"
+            src="https://images.unsplash.com/photo-1521490683712-35a1cb235d1c?w=700">
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="container about">
+        <img
+          loading="lazy"
+          alt="Interior de barbearia"
+          src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=900">
+
+        <div class="reveal">
+          <div class="eyebrow">Conheça nosso conceito</div>
+          <h2>TRADIÇÃO COM ATITUDE.</h2>
+
+          <p>
+            Na Barbearia Prime, acreditamos que um bom corte
+            vai muito além da aparência.
+          </p>
+
+          <p>
+            Nosso conceito une estilo, conforto e atenção
+            aos detalhes para oferecer uma experiência
+            diferenciada a cada visita.
+          </p>
+
+          <a href="#contato" class="btn">
+            Conheça nossos serviços &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact-section">
+      <div class="container reveal">
+        <div class="eyebrow">Seu próximo visual começa aqui</div>
+        <h2>PRONTO PARA MUDAR O ESTILO?</h2>
+
+        <p class="subtitle">
+          Entre em contato e agende seu próximo corte.
+          O WhatsApp será configurado para cada cliente.
+        </p>
+
+        <button class="btn" type="button"
+          onclick="alert('Este é um site demonstrativo. O WhatsApp será configurado para a barbearia contratante.')">
+          AGENDAR PELO WHATSAPP &rarr;
+        </button>
+
+        <div class="contact-info">
+          <div>Segunda a sábado — 09h às 19h</div>
+          <div>Endereço configurado para cada barbearia</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    BARBEARIA PRIME © 2026 — SITE DEMONSTRATIVO
+  </footer>
+
+  <script>
+    const elements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      elements.forEach(el => observer.observe(el));
+    } else {
+      elements.forEach(el => el.classList.add("visible"));
+    }
+  </script>
 
 </body>
 </html>
